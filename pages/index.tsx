@@ -33,7 +33,8 @@ import Modal from "../components/modal";
 
 export interface title {
   title: string;
-  description: string;
+  description?: string;
+  weekend?: string;
   image: string;
 }
 
@@ -52,9 +53,11 @@ const Home: NextPage<{ featuredTitles: featuredTitles }> = (props) => {
   const [isLoading, setIsLoading] = useState(false);
 
   //handle functions
-  const handleSubmit = (e: SubmitEvent) => {
+  const handleSubmit: React.FormEventHandler = (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
+
+    //using axios to fetch api data
     axios
       .get(`https://imdb-api.com/en/API/SearchMovie/k_5ubt4su2/${value}`)
       .then((response) => {
@@ -74,7 +77,7 @@ const Home: NextPage<{ featuredTitles: featuredTitles }> = (props) => {
         console.log(error);
       });
   };
-
+  //handles input change and set to value state
   const handleInputChange = (e: ChangeEvent) => {
     setValue((e.target as HTMLTextAreaElement).value);
     console.log(value);
@@ -96,7 +99,7 @@ const Home: NextPage<{ featuredTitles: featuredTitles }> = (props) => {
           featuredTitles={props.featuredTitles}
         />
         <Typography sx={{ margin: "2em 0" }} variant="h5">
-          Or...Tell me what's in your mind...
+          `Or...Tell me what`&apos;s in your mind...`
         </Typography>
         <form onSubmit={handleSubmit}>
           <TextField
@@ -139,6 +142,7 @@ const Home: NextPage<{ featuredTitles: featuredTitles }> = (props) => {
   );
 };
 
+// getServerSideProps only workd on page files and not other files
 // This gets called on every request
 export const getServerSideProps: GetServerSideProps = async () => {
   // Fetch data from external API

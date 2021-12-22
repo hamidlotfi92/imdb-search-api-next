@@ -6,16 +6,25 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import { Typography } from "@mui/material";
-
-const TitleCard: React.FC = (props: any) => {
+import { title } from "../pages/index";
+interface cardInput {
+  title: title;
+  setModalTitle: any;
+  setModalVisibility: any;
+}
+const TitleCard: React.FC<cardInput> = ({
+  title,
+  setModalTitle,
+  setModalVisibility,
+}) => {
   const handleClick = () => {
     const tmpTitle = {
-      title: props.title.title,
-      description: props.title.description,
-      image: props.title.image,
+      title: title.title,
+      description: title.description,
+      image: title.image,
     };
-    props.setModalTitle(tmpTitle);
-    props.setModalVisibility(true);
+    setModalTitle(tmpTitle);
+    setModalVisibility(true);
   };
   return (
     <Card
@@ -31,15 +40,15 @@ const TitleCard: React.FC = (props: any) => {
       <CardMedia
         sx={{ objectFit: "contain", height: "12em" }}
         component="img"
-        src={props.title.image}
+        src={title.image}
       />
       <CardContent>
         <Typography align="center" gutterBottom variant="h5" component="div">
-          {props.title.title}
+          {title.title}
         </Typography>
-        {props.title.weekend ? (
+        {title.weekend ? (
           <Typography align="center" variant="body2" color="text.secondary">
-            this week's sell: {props.title.weekend}
+            ` this week`&apos;s sell:` {title.weekend}
           </Typography>
         ) : null}
       </CardContent>
