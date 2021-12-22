@@ -39,6 +39,7 @@ export interface title {
 }
 
 const Home: NextPage<{ featuredTitles: featuredTitles }> = (props) => {
+  //mui media hooks
   const theme = useTheme();
   const matchLg = useMediaQuery(theme.breakpoints.down("lg"));
   //states
@@ -146,7 +147,7 @@ const Home: NextPage<{ featuredTitles: featuredTitles }> = (props) => {
   );
 };
 
-// getServerSideProps only workd on page files and not other files
+// getServerSideProps only works on page files and not other files
 // This gets called on every request
 export const getServerSideProps: GetServerSideProps = async () => {
   // Fetch data from external API

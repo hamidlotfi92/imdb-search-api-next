@@ -2,16 +2,18 @@ import React from "react";
 
 //mui
 import Card from "@mui/material/Card";
-
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import { Typography } from "@mui/material";
+//interface
 import { title } from "../pages/index";
+
 interface cardInput {
   title: title;
   setModalTitle: any;
   setModalVisibility: any;
 }
+
 const TitleCard: React.FC<cardInput> = ({
   title,
   setModalTitle,

@@ -1,9 +1,9 @@
-import React, { SetStateAction } from "react";
-
+import React from "react";
+//mui
 import { Dialog, Typography, Grid } from "@mui/material";
-
+//interface
 import { title } from "../pages";
-import Image from "next/image";
+
 interface modalProps {
   visibility: boolean;
   title: title;
@@ -37,7 +37,7 @@ const Modal: React.FC<modalProps> = ({
         direction="column"
         sx={{
           height: { xs: "30em", sm: "40em" },
-          width: "20em",
+          width: { xs: "15em", sm: "20em" },
           background: "#a3664259",
           backdropFilter: "blur(7px)",
         }}
