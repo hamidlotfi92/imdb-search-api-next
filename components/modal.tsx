@@ -36,7 +36,7 @@ const Modal: React.FC<modalProps> = ({
         container
         direction="column"
         sx={{
-          height: "40em",
+          height: { xs: "30em", sm: "40em" },
           width: "20em",
           background: "#a3664259",
           backdropFilter: "blur(7px)",
@@ -66,10 +66,22 @@ const Modal: React.FC<modalProps> = ({
               {title.title}
             </Typography>
           </Grid>
-
+          {title.description ? (
+            <Grid item>
+              <Typography align="center" variant="h6">
+                Description:{" "}
+              </Typography>
+            </Grid>
+          ) : (
+            <Grid item>
+              <Typography align="center" variant="h6">
+                This weekend sell:{" "}
+              </Typography>
+            </Grid>
+          )}
           <Grid item>
             <Typography align="center" variant="h6">
-              Description:{" "}
+              {title.weekend}
             </Typography>
           </Grid>
           <Grid item>

@@ -22,6 +22,8 @@ const TitleCard: React.FC<cardInput> = ({
       title: title.title,
       description: title.description,
       image: title.image,
+      //add weekend sell if available
+      weekend: title.weekend ? title.weekend : null,
     };
     setModalTitle(tmpTitle);
     setModalVisibility(true);
@@ -48,7 +50,7 @@ const TitleCard: React.FC<cardInput> = ({
         </Typography>
         {title.weekend ? (
           <Typography align="center" variant="body2" color="text.secondary">
-            ` this week`&apos;s sell:` {title.weekend}
+            this week`&apos;s sell: {title.weekend}
           </Typography>
         ) : null}
       </CardContent>

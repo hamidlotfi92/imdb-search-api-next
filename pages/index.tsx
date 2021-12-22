@@ -87,10 +87,14 @@ const Home: NextPage<{ featuredTitles: featuredTitles }> = (props) => {
       <Head>IMDB Search</Head>
 
       <main className={styles.main}>
-        <Typography variant={matchLg ? "h3" : "h2"}>
+        <Typography align="center" variant={matchLg ? "h4" : "h2"}>
           Looking for a movie?
         </Typography>
-        <Typography sx={{ marginTop: "2em" }} variant="h5">
+        <Typography
+          align="center"
+          sx={{ marginTop: "2em" }}
+          variant={matchLg ? "h5" : "h2"}
+        >
           These are the hot ones on BoxOffice
         </Typography>
         <Featured
@@ -98,12 +102,12 @@ const Home: NextPage<{ featuredTitles: featuredTitles }> = (props) => {
           setModalVisibility={setModalVisibility}
           featuredTitles={props.featuredTitles}
         />
-        <Typography sx={{ margin: "2em 0" }} variant="h5">
-          `Or...Tell me what`&apos;s in your mind...`
+        <Typography align="center" sx={{ margin: "2em 0" }} variant="h5">
+          Or...Tell me what`&apos;s in your mind...
         </Typography>
         <form onSubmit={handleSubmit}>
           <TextField
-            sx={{ width: "20em" }}
+            sx={{ width: { xs: "12em", sm: "20em" } }}
             color="primary"
             label="Enter here"
             variant="filled"
@@ -115,7 +119,7 @@ const Home: NextPage<{ featuredTitles: featuredTitles }> = (props) => {
           </Button>
         </form>
         <Fade in={isLoading} unmountOnExit>
-          <CircularProgress />
+          <CircularProgress sx={{ marginTop: "3em" }} />
         </Fade>
         <Grid sx={{ marginTop: "2em" }} justifyContent="center" container>
           {searchArray.map((title: any) => (
